@@ -1,17 +1,29 @@
 import './App.css'
+import { useState } from 'react';
 
 function App() {
+  const [mensagem, setMensagem] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();//impede o envio padrao
+    console.log("Enviando mensagem:", mensagem);
+    //aqui eu chamo minha API
+
+  }
+
   return (
-    <div>
-    <header className="main-header">
-      <h1>MyPlace</h1>
-    </header>
-      <form className="campoDeMsg" action="/enviar" method="post">
-        <input type="text" id="mensagem" name="mensagem" placeholder="Digite sua mensagem" /><br />
-        <button type="submit">Enviar</button>
-      </form>
-      </div>
-  )
+    <form onSubmit={handleSubmit} className="form-container">
+      <textarea
+        maxLength={280} 
+        value={mensagem}
+        onChange={(e)=> setMensagem(e.target.value)}
+        placeholder="Digite sua mensagem..."
+        className="campoDeMsg"
+      />
+      <div className="contador">{mensagem.length}</div>
+      <button type="submit">Enviar</button>
+     </form> 
+  );
 }
 
 export default App
