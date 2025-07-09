@@ -2,6 +2,7 @@ import './App.css'
 import { useState } from 'react';
 import { FiSettings } from 'react-icons/fi'; // Ícone de engrenagem
 import CampoDePesquisa from './campoDePesquisa'; // import do campo de pesquisa
+import CampoDeFoto from './campoDeFoto';
 
 function App() {
   const [mensagem, setMensagem] = useState(''); //contador 
@@ -43,8 +44,10 @@ function App() {
       </>
      )}
      </header>
-
-
+     <div className="bloco-foto">
+        <CampoDeFoto src="/exemploPerfil.png" /> 
+      </div>
+     
      <form onSubmit={handleSubmit} className="campoDeMsg">
     
       <textarea
