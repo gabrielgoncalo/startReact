@@ -1,6 +1,7 @@
 import './App.css'
 import { useState } from 'react';
 import { FiSettings } from 'react-icons/fi'; // Ícone de engrenagem
+import CampoDePesquisa from './campoDePesquisa'; // import do campo de pesquisa
 
 function App() {
   const [mensagem, setMensagem] = useState(''); //contador 
@@ -24,6 +25,8 @@ function App() {
       <div className='logo-header'>
         <h1>MyPlace</h1>
       </div> 
+
+      <CampoDePesquisa />
 
      <button onClick={toggleConfig} className="btn-config">
       <FiSettings className="icone" />
