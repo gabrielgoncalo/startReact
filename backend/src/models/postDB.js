@@ -3,10 +3,10 @@ const { Pool } = require("pg");
 // Configuração do meu banco de dados
 
 const pool =  new Pool ({
-    user: "seu_usuario",
+    user: "postgres",
     host: "localhost",
     database: "myplace",
-    password: "sua_senha",
+    password: "gabs12345",
     port: 5432
 
 });

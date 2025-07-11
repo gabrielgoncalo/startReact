@@ -12,7 +12,7 @@ const pool = require("../models/postDB");
         res.status(201).json(resultado.rows[0]);
     }   catch (error) {
         console.error("Erro ao criar Post: ", error);
-        res.status(500).json({ error: "Erro ao criar Post"});
+        res.status(500).json({ error: "Erro ao criar Post" });
     }
 
  };
@@ -20,7 +20,7 @@ const pool = require("../models/postDB");
  exports.listarPost = async (req, res) => {
     try{
         const resultado = await pool.query(
-            "SELECT * FROM mensagens ORDER BY dataCriancao DESC"
+            "SELECT * FROM mensagens ORDER BY dataCriacao DESC"
 
         );
         res.json(resultado.rows);

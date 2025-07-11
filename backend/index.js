@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
+const msgRoute = require("./src/routes/msgRoute");
 
 
 const app = express();
@@ -12,6 +13,9 @@ app.use(cors()); //permite que o backend receba requisições do frontend
 app.use(express.json()); //le o json no body
 
 app.use(express.static(path.join(__dirname, "../frontend/dist"))); //serve arquivos estaticos do frontend
+
+app.use("/api/mensagens", msgRoute);
+
 
 // Rota fallback: devolver index.html para todas as rotas que não sejam API
 app.get('*', (req, res) => {
