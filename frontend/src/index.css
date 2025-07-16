@@ -206,7 +206,7 @@
 }
 
 .bloco-foto {
-  position:absolute;
+  position:flex;
   margin-top: 40px;
   margin-left: 300px;
 }

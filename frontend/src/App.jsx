@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { FiSettings } from 'react-icons/fi'; // Ícone de engrenagem
 import CampoDePesquisa from './campoDePesquisa'; // import do campo de pesquisa
 import CampoDeFoto from './campoDeFoto';
+import ListaDeMensagens from './mensagens';
 
 function App() {
   const [mensagem, setMensagem] = useState(''); //contador 
@@ -12,13 +13,28 @@ function App() {
     setAberto(!aberto);
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:5000/api/mensagens", {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json"
+        },
+        body: JSON.stringify({ texto: mensagem, userId: 1 })
+      });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();//impede o envio padrao
-    console.log("Enviando mensagem:", mensagem);
-    //aqui eu chamo minha API
+      if (!response.ok) throw new Error("Erro ao enviar mensagem");
 
-  }
+      const data = await response.json();
+      console.log("mensagem criada:", data);
+      alert("Mensagem enviada com sucesso!");
+      setMensagem(""); // Limpa o campo
+    } catch (error) {
+      console.error(error);
+      alert("Erro ao enviar mensagem")
+    }
+  };
 
   return (
     <>
@@ -60,6 +76,7 @@ function App() {
       <div className="contador">{mensagem.length}/280</div>
       <button type="submit">Enviar</button>
      </form>
+     <ListaDeMensagens />
      </>
   );
 }
