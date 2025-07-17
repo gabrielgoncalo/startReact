@@ -149,8 +149,8 @@
 }
 
 .contador {
-  margin-left: 550px;
-  position: fixed;
+  margin-left: 50px;
+  position: flex;
 }
 
 .campo-pesquisa-container {
@@ -209,4 +209,10 @@
   position:flex;
   margin-top: 40px;
   margin-left: 300px;
+}
+
+.btn-enviar-msg:disabled {
+  cursor: default !important;
+  background-color: gray;
+  opacity: 0.6;
 }

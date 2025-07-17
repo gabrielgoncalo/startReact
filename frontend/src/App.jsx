@@ -28,8 +28,9 @@ function App() {
 
       const data = await response.json();
       console.log("mensagem criada:", data);
-      alert("Mensagem enviada com sucesso!");
+      //alert("Mensagem enviada com sucesso!");
       setMensagem(""); // Limpa o campo
+      window.location.reload();// 🔁 recarrega a página
     } catch (error) {
       console.error(error);
       alert("Erro ao enviar mensagem")
@@ -74,7 +75,12 @@ function App() {
         className="textarea"
       />
       <div className="contador">{mensagem.length}/280</div>
-      <button type="submit">Enviar</button>
+      <button 
+        className="btn-enviar-msg" 
+        type="submit" 
+        disabled={mensagem.trim() === ""}
+        >Enviar
+      </button>
      </form>
      <ListaDeMensagens />
      </>
