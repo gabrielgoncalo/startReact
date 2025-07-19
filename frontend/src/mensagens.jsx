@@ -22,8 +22,8 @@ function ListaDeMensagens() {
             <ul>
                 {mensagens.map((msg) => (
                     <li key={msg.id}>
-                        {msg.texto} <br />
-                        {msg.userId} <br />
+                        {msg.texto} texto<br />
+                        {msg.userId}usuario <br />
                         <strong>Data:</strong> {new Date(msg.datacriacao).toLocaleString()}
                     </li>
                 ))}
